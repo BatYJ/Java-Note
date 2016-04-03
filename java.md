@@ -2,14 +2,25 @@
 #### HashMap 实现
 + Entry数组，初始长度16，0.75扩容，拉链式处理hashcode相同的key
 
-#### 线程池 实现
+#### 线程池
++ 重复利用已创建的线程，减少JVM消耗
++ 任务到达时，不需要等待线程创建就能立即执行，响应时间快
++ 线程统一调优，分配，利于管理
++ ```corePoolSize``` ```maximumPoolSize``` ```SynchronousQueue``` ```LinkedBlockingQueue(任务数无限制)``` ```ArrayBlockingQueue```
++ 自定义一个线程池
+
+#### 线程同步原理
++ ```wait```: 持有该对象的线程把该对象的控制权交出去，然后处于等待状态
++ ```notify```: 通过某个正在等待这个对象控制权的线程可以继续运行
++ ```notifyAll```: 通知所有等待这个对象控制权的线程继续运行（互相竞争，最终只有一个线程获得控制权）
++ 使用wait notify notifyAll 需要保让线程拥有对象的控制权，可以通过synchronized对象保证，否则会抛出```java.lang.IllegalMonitorStateException```
 
 #### 内存泄露 循环引用
 
 #### gc机制 
 + http://blog.jobbole.com/80499/
 
-#### 并发Map volatile
+#### ConcurrentMap volatile
 
 #### jstack jmap jstat jinfo JVM基本参数 -verbose:class javap
 
